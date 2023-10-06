@@ -1,0 +1,36 @@
+{% extends 'home.html'%} {% load static%} {% block content %} <br />
+<!-- row.// -->
+<!-- row.// -->
+
+<div class="container">
+  <div class="row">
+    <main class="col-md-12">
+      <article class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card" style="width: 25rem">
+                <img src="{% static 'banner/1.jpeg' %}" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card" style="text-align: center">
+                <div class="card-body">
+                  <p><b style="color: green">WELCOME TO</b></p>
+                  <p><b style="color: green">Brain Blusters</b></p>
+
+                  <p><b style="color: red">The unlimited Quiz</b></p>
+                  <a href="{% url 'category' %}"
+                    ><b class="btn btn-primary">Let's play</b></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,92 @@
+{% extends 'home.html' %} {% load static %} {% block content%}
+<section class="section-conten padding-y bg">
+  <div class="container">
+    <div class="row">
+      {% include 'dashboard_sidebar.html' %}
+      <main class="col-md-9">
+        <article class="card">
+          <header class="card-header">
+            <strong class="d-inline-block mr-3">Logged in as:</strong>
+            <span>{{request.user}}</span>
+            <hr />
+            <marquee style="color: red">
+              <strong
+                >This is latest score.if you want to see result of old click
+                on<a href="{% url 'view_history' %}" style="color: green">
+                  view History</a
+                ></strong
+              ></marquee
+            >
+          </header>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card" style="text-align: center">
+                  <div class="card-body">
+                    <h5 class="card-title">Category : {{result.category}}</h5>
+
+                    <h5 class="card-title">
+                      Score :{{result.Score}}//{{result.Total}}
+                    </h5>
+
+                    <h5 class="card-title">
+                      Percentage : {{result.percentage}}
+                    </h5>
+
+                    <a href="{% url 'view_history' %}">view History</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card" style="text-align: center">
+                  <div class="card-body">
+                    <img src="{% static "images/default.jpg" %}" alt="user
+                    profile picture" width="50" height="50"
+                    style="border-radius: 50%" />
+                    <p>Name: {{request.user}}</p>
+                    <p class="mb-0">Email: {{request.user.email}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card" style="text-align: center">
+                      <br />
+                      <strong class="d-inline-block mr-3"
+                        ><b class="btn btn-primary"
+                          >Already Certified</b
+                        ></strong
+                      >
+                      {% if total_count > 0 %} {% for i in total%}
+                      <div class="card-body">
+                        <h5 class="card-title">Category:{{i.category}}</h5>
+                      </div>
+                      {%endfor%} {% else %}
+                      <div class="card-body">
+                        <h5 class="card-title">Category:None</h5>
+                        <a href="{% url 'category' %}"
+                          ><b class="btn btn-success">let's play and win</b></a
+                        >
+                      </div>
+                      {%endif%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- row.// -->
+          </div>
+          <!-- card-body .// -->
+
+          <!-- table-responsive .end// -->
+        </article>
+        <!-- order-group.// -->
+      </main>
+    </div>
+    <!-- row.// -->
+  </div>
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+{% endblock%}

@@ -1,0 +1,41 @@
+{% extends 'home.html'%}
+{% block content%}
+<main class="col-md-9">
+  <article class="card">
+    <header class="card-header">
+      <strong class="d-inline-block mr-3">{{request.user}}</strong>
+
+     
+    </header>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card" style="text-align: center">
+            {% for i in result %}
+            <div class="card-body">
+              <h5 class="card-title">Category</h5>
+              <h4>{{i.category}}</h4>
+              <h5 class="card-title">Score</h5>
+              <h4>{{i.Score}} <b>//</b> {{i.Total}}</h4>
+              <h5 class="card-title">Percentage</h5>
+              <h4>{{i.percentage}}</h4>
+              
+            {%endfor%}
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <!-- row.// -->
+    </div>
+    <!-- card-body .// -->
+
+    <!-- table-responsive .end// -->
+  </article>
+  <!-- order-group.// -->
+</main>
+</div>
+<!-- row.// -->
+</div>
+</section>
+{% endblock%}

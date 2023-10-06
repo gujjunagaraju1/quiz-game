@@ -1,0 +1,28 @@
+<aside class="col-md-3">
+  <!--   SIDEBAR   -->
+  <ul class="list-group">
+    <a
+      class="list-group-item {% if '/result/' == request.path %} active {% endif %}"
+      href="{% url 'result' %}"
+    >
+      Dashboard
+    </a>
+    <a
+      class="list-group-item {% if '/view_history/' == request.path %} active {% endif %}"
+      href="{% url 'view_history' %}"
+    >
+      view played quzies
+    </a>
+
+    <a
+      class="list-group-item {% if '/change_password/' == request.path %} active {% endif %}"
+      href="{% url 'change_password'%}"
+      >Change password
+    </a>
+  </ul>
+  <br />
+  <a class="btn btn-light btn-block" href="{% url 'logout' %}">
+    <i class="fa fa-power-off"></i> <span class="text">Log out</span>
+  </a>
+  <!--   SIDEBAR .//END   -->
+</aside>

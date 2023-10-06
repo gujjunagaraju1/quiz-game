@@ -1,0 +1,37 @@
+{% extends 'home.html'%} {%block content%}
+<h1 class="my-4 mx-5" style="color: orange">LOGIN</h1>
+
+<div class="my-4 mx-5">
+  <form method="POST" action="{% url 'login' %}">
+    {%csrf_token%}
+    <div class="row-form ">
+      <div class="col-md-5">
+        <label for="">USERNAME</label>
+        <input
+          type="text"
+          name="username"
+          placeholder="enter the user name"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+    <div class="row-form">
+      <div class=" form-group col-md-5">
+        <label for="">PASSWORD</label>
+        <input
+          type="password"
+          name="pass1"
+          placeholder="please enter the password"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+    <br />
+    <input type="submit" value="login" class="btn btn-primary" />
+  </form><br>
+  <p >IF YOU NOT REGISTER PLEASE REGISTER:<a href="{% url 'register'%}">click here</p>
+</div>
+
+{%endblock%}

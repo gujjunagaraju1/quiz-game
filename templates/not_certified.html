@@ -1,0 +1,19 @@
+{% extends "home.html" %} {%block content%}
+<div class="my-5 mx-5">
+  <div class="card" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">{{request.user}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        See results in <b>DashBoard</b>
+      </h6>
+      <p class="card-text">
+        Sorry you didn't received certificate. please try after sometime. if you
+        fail agin we will provide courses by comming soon.
+      </p>
+      <a href="{% url 'home' %}" class="card-link">Home</a>
+      <a href="{% url 'result' %}" class="card-link">DashBoard</a>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

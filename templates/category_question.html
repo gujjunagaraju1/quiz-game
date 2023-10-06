@@ -1,0 +1,79 @@
+{%extends 'home.html'%} {%block title%}{{category.Title}} Question{%endblock%}
+<br />
+{%block content%}
+
+{% if result.certified%}
+<div class="card" style="width: 18rem">
+  
+  <div class="card-body">
+    <h5 class="card-title">Hi:{{request.user}}</h5>
+    <p class="card-text">you are already certified in {{result.category}}.</p>
+   
+    <p class="card-text">If you need other certificate please click below.Thank you</p>
+
+    <a href="{% url 'category' %}" class="btn btn-danger"
+      >Click Here </a
+    >
+  </div>
+{%else%}
+<h2 class="my-4">{{category.Title}} Question</h2>
+
+<div class="card my-4 border-dark">
+  <h4 class="card-header">{{questions.question}} ? <span class="timer float-right"></span></h4>
+
+  
+  
+  <form method="post" action="{% url 'submit_question' category.id questions.id %}">
+    {% csrf_token %}
+  <div class="card-body border-dark">
+    <table class="table table-bordered">
+      <tr>
+        <td><input id="option_1"  name="answer" type="radio" value="{{questions.opt_1}}" /></td>
+        <th><label for="option_1">{{questions.opt_1}}</th>
+      </tr>
+      <tr>
+        <td><input id="option_2"   type="radio"  name="answer" value="{{questions.opt_2}}"  /></td>
+        <th><label for="option_2">{{questions.opt_2}}</th>
+      </tr>
+      <tr>
+        <td><input id="option_3"  type="radio"  name="answer"  value="{{questions.opt_3}}"  /></td>
+        <th><label for="option_3">{{questions.opt_3}}</th>
+      </tr>
+      <tr>
+        <td><input id="option_4" type="radio"   name="answer" value="{{questions.opt_4}}"  /></td>
+        <th><label for="option_4">{{questions.opt_4}}</th>
+      </tr>
+      
+      
+    </table>
+  </div>
+  <div class="card-footer">
+    <input type="submit" name="skip" value="skip" class="btn btn-danger skipBtn" />
+    <input type="submit" name="submit" value="submit" class="btn btn-primary submitBtn" />
+  </div>
+</form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".submitBtn").on('click',function(){
+            var _checkedAns=$("input[name='answer']:checked").val();
+            if(_checkedAns==undefined){
+                alert('please select option');
+                return false;
+            }
+
+
+           
+
+        });
+       
+        });
+
+</script>
+
+{%endif%}
+
+
+
+
+{%endblock%}

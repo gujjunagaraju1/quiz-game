@@ -1,0 +1,17 @@
+{% extends "home.html" %} {%block content%}
+<div class="d-flex justify-content-around">
+  {% for i in category %}
+  <div class="card" style="width: 18rem">
+    <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">Category: {{i.Title}}</h5>
+      <p class="card-text">{{i.description}}</p>
+
+      <a href="{% url 'category_question' i.id %}" class="btn btn-danger"
+        >Click Here</a
+      >
+    </div>
+  </div>
+  {%endfor%}
+</div>
+{%endblock%}
